@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pytest = "*"
 engi-demo-python = {editable = true, path = "."}
+black = "*"
 
 [dev-packages]
 pytest-reportlog = "*"
