@@ -10,3 +10,6 @@ __pycache__/
 build
 
 pytest.json
+.gitsecret/keys/random_seed
+!*.secret
+.env

@@ -15,7 +15,8 @@ services:
     command: black src/
     <<: *service
   tests:
-    command: pytest --report-log pytest.json
+    command: pytest -s --report-log pytest.json
     <<: *service
     depends_on:
       - format
+    env_file: .env # only after git secret reveal
