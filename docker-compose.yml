@@ -5,17 +5,21 @@ x-service:
   build:
     context: .
   volumes:
-    # bind mount a directory to share the output of the formatter and test runner
-    - type: bind
-      source: .
-      target: /code
+    - type: volume
+      source: output
+      target: $ENGI_WORKING_DIR
 
 services:
   format:
     command: black src/
     <<: *service
   tests:
-    command: pytest --report-log pytest.json
+    command: pytest -s --report-log $ENGI_WORKING_DIR/pytest.json
     <<: *service
     depends_on:
       - format
+    env_file: .env # only after git secret reveal
+volumes:
+  output:
+    external: true
+    name: $ENGI_WORKING_VOL
