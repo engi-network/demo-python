@@ -18,7 +18,6 @@ services:
     <<: *service
     depends_on:
       - format
-    env_file: .env # only after git secret reveal
 volumes:
   output:
     external: true
