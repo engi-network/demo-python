@@ -5,7 +5,8 @@ x-test-framework: pytest
 x-service:
   &service
   build:
-    context: .
+    context: ..
+    dockerfile: .engi/Dockerfile
   volumes:
     - type: volume
       source: output
